@@ -1,10 +1,13 @@
 from flask import Flask, request, make_response, redirect, render_template
+from flask_bootstrap import Bootstrap
+
 
 app =  Flask(__name__)
+Bootstrap = Bootstrap(app) # creates an instance to work with bootstrap
 
-todos = ['Compras', 'Ventas', 'Estados']
+todos = ['Compras', 'Ventas', 'Estados'] # iterable list for testing
 
-@app.errorhandler(404)
+@app.errorhandler(404) # error handler 404
 def not_found(error):
     return render_template('404.html', error=error)
 
